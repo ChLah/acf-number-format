@@ -4,7 +4,7 @@
  * Plugin Name: ACF number format
  * Description: Provides the possibility to format ACF number fields with thousand separators and decimal places.
  * Plugin URI: https://seenland-solutions.de
- * Version: 0.0.1
+ * Version: 0.0.2
  * Author: Christoph Lahner 
  * Author URI: https://seenland-solutions.de
  * Text Domain: acf-number-format
@@ -30,7 +30,7 @@ function format_number_field( $value, $post_id, $field ) {
         return $value;
     }
 
-    return number_format($value, 0, ',', '.');
+    return number_format(floatval($value), 0, ',', '.');
 }
 
 add_action('acf/render_field_settings/type=number', 'add_number_format_settings');
